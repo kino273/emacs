@@ -22,5 +22,5 @@ $ docker push kino/emacs
 Following command will copy emacs files to /usr/local/docker/emacs/ on the host.
 
 ```
-$ docker run -ti --rm kino/emacs
+$ docker run -v /usr/local/docker:/usr/local/docker-host --rm kino/emacs
 ```
