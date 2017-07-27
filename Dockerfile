@@ -11,8 +11,6 @@ RUN curl -O http://ftp.gnu.org/pub/gnu/emacs/$pkg && \
     ./configure --prefix=/usr/local/docker/emacs --without-x && \
     make install
 
-ADD copy.sh /root/
-VOLUME /usr/local/docker /usr/local/docker-host
-
 # -------------------------------
-CMD ["/root/copy.sh"]
+ENTRYPOINT ["cp", "-R"]
+CMD ["/usr/local/docker/emacs", "/usr/local/docker-host/"]
